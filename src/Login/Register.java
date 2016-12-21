@@ -1,6 +1,6 @@
 package Login;
 
-import Miscellaneous.MakeConnection;
+import Miscellaneous.Connector;
 import org.postgresql.util.PSQLException;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 class Register {
 
     public static void registerUsersData() {
-        MakeConnection makeConn = new MakeConnection();
+        Connector makeConn = new Connector();
         Connection connection;
         Statement stmt;
         try {

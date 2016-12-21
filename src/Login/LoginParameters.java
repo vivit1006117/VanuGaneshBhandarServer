@@ -1,6 +1,6 @@
 package Login;
 
-public class LoginParameters {
+class LoginParameters {
     private String userId;
     private String password;
 

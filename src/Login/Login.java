@@ -1,7 +1,8 @@
 package Login;
 
-import Miscellaneous.MakeConnection;
+import Miscellaneous.Connector;
 import org.postgresql.util.PSQLException;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ class Login {
     private UserDetails userDetails = new UserDetails();
 
     public void findUser() {
-        MakeConnection makeConn = new MakeConnection();
+        Connector makeConn = new Connector();
         Connection connection;
         Statement stmt;
         try {
