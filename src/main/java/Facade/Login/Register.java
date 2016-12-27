@@ -1,7 +1,7 @@
 package Facade.Login;
 
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 import org.hibernate.exception.ConstraintViolationException;
 
@@ -10,14 +10,14 @@ class Register {
     public static void registerUsersData() {
 
         try{
-            Session session = new AnnotationConfiguration().configure("hibernatePostgres.cfg.xml").buildSessionFactory().openSession();
+            Session session = new Configuration().configure().buildSessionFactory().openSession();
 
             Transaction t = session.beginTransaction();
 
             UserDetails userDetails = new UserDetails();
-            userDetails.setEmail("asasa@xcsfg.com");
+            userDetails.setEmail("asasa@xcdsfg.com");
             userDetails.setPassword("password");
-            userDetails.setPhoneNumber("9680003489");
+            userDetails.setPhoneNumber("96800048");
             userDetails.setName("vivek");
 
             session.persist(userDetails);
