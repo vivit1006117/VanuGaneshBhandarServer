@@ -1,6 +1,7 @@
 package Facade.Login;
 
 import Facade.Miscellaneous.Connector;
+import org.postgresql.util.PSQLException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -29,12 +30,15 @@ class Login {
                     System.out.println("name: " + userDetails.getName());
                     System.out.println("Phone: " + userDetails.getPhoneNumber());
                 }
-            }catch (Exception e){
-                System.out.println(e.getMessage());
+            }catch (PSQLException e){
+                if(e.getMessage().contains("does not exist")){
+                    System.out.println("User is not registered");
+                }else {
+                    System.out.println(e.getMessage());
+                }
             }
             connection.close();
         } catch (Exception e) {
-            e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
@@ -48,8 +52,8 @@ class Login {
 
     private ResultSet getUserDetails(Statement stmt) throws SQLException {
         parameters.setPassword("password");
-        parameters.setUserId(" '9680002349' ");
-        String selectFrom = "SELECT * FROM USERS WHERE";
+        parameters.setUserId("'96800048'");
+        String selectFrom = "SELECT * FROM USERDETAILS WHERE";
         String userId = parameters.getUserId().contains("@") ? " Email =" + parameters.getUserId() : " phoneNumber =" + parameters.getUserId();
         String password = "password =" + parameters.getPassword();
         String sql = selectFrom + userId + " AND " + password;

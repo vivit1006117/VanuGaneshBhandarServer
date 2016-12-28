@@ -5,13 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-class LoginController {
-    @RestController
-    @RequestMapping("/login")
-    public class SpringRestController {
-        @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-        public void hello(@PathVariable String name) {
-            System.out.println( "Hello " + name);
-        }
+@RestController
+@RequestMapping("/hello")
+public class LoginController {
+    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    public String hello(@PathVariable String name) {
+        String result = "Hello " + name;
+        return result;
     }
 }

@@ -12,7 +12,7 @@ class Register {
         try{
             Session session = new Configuration().configure().buildSessionFactory().openSession();
 
-            Transaction t = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
 
             UserDetails userDetails = new UserDetails();
             userDetails.setEmail("asasa@xcdsfg.com");
@@ -22,10 +22,11 @@ class Register {
 
             session.persist(userDetails);
 
-            t.commit();
+            transaction.commit();
             session.close();
+
             System.out.println("successfully saved");
-        }catch (ConstraintViolationException e){
+        }catch (ConstraintViolationException e) {
             userAllReadyRegisteredMessage();
         }
     }
