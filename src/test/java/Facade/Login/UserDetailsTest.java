@@ -7,10 +7,10 @@ import static org.junit.Assert.*;
 public class UserDetailsTest {
 
     private static final String EMAIL = "abcd@abcd.com";
-    public static final String NAME = "Vivek";
-    public static final String PHONE_NUMBER = "980232344";
-    public static final String PASSWORD = "password";
-    UserDetails userDetails = new UserDetails();
+    private static final String NAME = "Vivek";
+    private static final String PHONE_NUMBER = "980232344";
+    private static final String PASSWORD = "password";
+    private final UserDetails userDetails = new UserDetails();
 
     @Test
     public void testGetEmail() throws Exception {

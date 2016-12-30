@@ -1,7 +1,6 @@
 package Facade.Login;
 
 import Facade.Miscellaneous.Connector;
-import org.postgresql.util.PSQLException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -30,7 +29,7 @@ class Login {
                     System.out.println("name: " + userDetails.getName());
                     System.out.println("Phone: " + userDetails.getPhoneNumber());
                 }
-            }catch (PSQLException e){
+            }catch (Exception e){
                 if(e.getMessage().contains("does not exist")){
                     System.out.println("User is not registered");
                 }else {

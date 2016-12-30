@@ -8,7 +8,7 @@
     <artifactId>VanuGaneshBhandarServer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>SpringRestfulWebServices Maven Webapp</name>
+    <name>VanuGaneshBhandarServer Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -83,9 +83,14 @@
             <artifactId>tomcat-jdbc</artifactId>
             <version>9.0.0.M1</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.2.1.RELEASE</version>
+        </dependency>
     </dependencies>
     <build>
-        <finalName>SpringRestfulHelloWorldExample</finalName>
+        <finalName>GaneshBhandarServer</finalName>
 
         <defaultGoal>clean install verify</defaultGoal>
         <plugins>

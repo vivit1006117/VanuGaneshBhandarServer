@@ -3,5 +3,6 @@
 
 ##Used
 
+Maven
+Spring
 Postgres
-gem lunchy
