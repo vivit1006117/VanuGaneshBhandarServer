@@ -1,6 +1,7 @@
 package Facade.Login;
 
 import Facade.Miscellaneous.Connector;
+import Facade.Registeration.UserDetails;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

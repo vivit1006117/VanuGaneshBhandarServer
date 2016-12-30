@@ -1,4 +1,4 @@
-package Facade.Login;
+package Facade.Registeration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-class UserDetails {
+public class UserDetails {
 
     @Id
     private String email;

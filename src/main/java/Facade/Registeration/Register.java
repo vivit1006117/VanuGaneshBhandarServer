@@ -1,11 +1,11 @@
-package Facade.Login;
+package Facade.Registeration;
 
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 import org.hibernate.exception.ConstraintViolationException;
 
-class Register {
+public class Register {
 
     public static void registerUsersData() {
 
