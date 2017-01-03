@@ -8,12 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-class Login {
+public class Login {
 
     private final LoginParameters parameters = new LoginParameters();
     private final UserDetails userDetails = new UserDetails();
 
-    public void findUser() {
+    public void findUser(String userId, String password) {
+        parameters.setPassword(password);
+        parameters.setUserId(userId);
         Connector makeConn = new Connector();
         Connection connection;
         Statement stmt;
@@ -51,8 +53,6 @@ class Login {
     }
 
     private ResultSet getUserDetails(Statement stmt) throws SQLException {
-        parameters.setPassword("password");
-        parameters.setUserId("'96800048'");
         String selectFrom = "SELECT * FROM USERDETAILS WHERE";
         String userId = parameters.getUserId().contains("@") ? " Email =" + parameters.getUserId() : " phoneNumber =" + parameters.getUserId();
         String password = "password =" + parameters.getPassword();
