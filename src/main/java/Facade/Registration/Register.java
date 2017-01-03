@@ -1,4 +1,4 @@
-package Facade.Registeration;
+package Facade.Registration;
 
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
@@ -7,7 +7,7 @@ import org.hibernate.exception.ConstraintViolationException;
 
 public class Register {
 
-    public static void registerUsersData() {
+    public void registerUsersData() {
 
         try{
             Session session = new Configuration().configure().buildSessionFactory().openSession();

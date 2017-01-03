@@ -12,7 +12,7 @@
         <property name="connection.username">ganesh</property>
         <property name="connection.password">ganesh</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <mapping class="Facade.Registeration.UserDetails"/>
+        <mapping class="Facade.Registration.UserDetails"/>
     </session-factory>
 
 </hibernate-configuration>

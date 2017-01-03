@@ -1,6 +1,6 @@
 package Facade.Login;
 
-import Facade.Registeration.UserDetails;
+import Facade.Registration.UserDetails;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

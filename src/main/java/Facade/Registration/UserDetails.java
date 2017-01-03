@@ -1,4 +1,4 @@
-package Facade.Registeration;
+package Facade.Registration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
