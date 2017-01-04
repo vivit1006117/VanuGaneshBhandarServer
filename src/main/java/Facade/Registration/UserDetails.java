@@ -9,6 +9,13 @@ import javax.persistence.Table;
 @Table
 public class UserDetails {
 
+    public UserDetails(String email, String phoneNumber, String password, String name){
+        setEmail(email);
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setPassword(password);
+    }
+
     @Id
     private String email;
 
@@ -20,6 +27,9 @@ public class UserDetails {
 
     @Column(nullable = false)
     private String name;
+
+    public UserDetails() {
+    }
 
     public String getEmail() {
         return email;

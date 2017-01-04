@@ -7,19 +7,12 @@ import org.hibernate.exception.ConstraintViolationException;
 
 public class Register {
 
-    public void registerUsersData() {
+    public void registerUsersData(UserDetails userDetails) {
 
         try{
             Session session = new Configuration().configure().buildSessionFactory().openSession();
 
             Transaction transaction = session.beginTransaction();
-
-            UserDetails userDetails = new UserDetails();
-            userDetails.setEmail("asasa@xcdsfg.com");
-            userDetails.setPassword("password");
-            userDetails.setPhoneNumber("96800048");
-            userDetails.setName("vivek");
-
             session.persist(userDetails);
 
             transaction.commit();
@@ -28,6 +21,9 @@ public class Register {
             System.out.println("successfully saved");
         }catch (ConstraintViolationException e) {
             userAllReadyRegisteredMessage();
+        }catch (Exception e){
+            System.out.println("Some Error has occurred");
+            System.out.println(e);
         }
     }
 
