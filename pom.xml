@@ -104,6 +104,11 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.3.3.Final</version>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>GaneshBhandarServer</finalName>
