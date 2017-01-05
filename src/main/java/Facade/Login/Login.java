@@ -1,63 +1,43 @@
 package Facade.Login;
 
-import Facade.Miscellaneous.Connector;
 import Facade.Registration.UserDetails;
+import org.hibernate.Criteria;
+import org.hibernate.QueryException;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.List;
 
 public class Login {
 
     private final LoginParameters parameters = new LoginParameters();
-    private final UserDetails userDetails = new UserDetails();
 
     public void findUser(String userId, String password) {
         parameters.setPassword(password);
         parameters.setUserId(userId);
-        Connector makeConn = new Connector();
-        Connection connection;
-        Statement stmt;
         try {
-            connection = makeConn.MakeConnectionToDatabase();
-            stmt = connection.createStatement();
-            try {
-                ResultSet resultSet = getUserDetails(stmt);
-                while(resultSet.next()){
-                    setUserDetails(resultSet);
+            Session session = new Configuration().configure().buildSessionFactory().openSession();
 
-                    //Display values
-                    System.out.println("\nemail: " + userDetails.getEmail());
-                    System.out.println("name: " + userDetails.getName());
-                    System.out.println("Phone: " + userDetails.getPhoneNumber());
-                }
-            }catch (Exception e){
-                if(e.getMessage().contains("does not exist")){
-                    System.out.println("User is not registered");
-                }else {
-                    System.out.println(e.getMessage());
-                }
+            Criteria cr = session.createCriteria(UserDetails.class);
+
+            String userIdType = parameters.getUserId().contains("@") ? "email" : "phoneNumber";
+            cr.add(Restrictions.eq(userIdType, parameters.getUserId()));
+            cr.add(Restrictions.eq("password", parameters.getPassword()));
+            List results = cr.list();
+            for (Object result : results) {
+                UserDetails userDetails = (UserDetails) result;
+
+                //Display values
+                System.out.println("\nemail: " + userDetails.getEmail());
+                System.out.println("name: " + userDetails.getName());
+                System.out.println("Phone: " + userDetails.getPhoneNumber());
             }
-            connection.close();
+        } catch (QueryException e) {
+            System.out.println("User is not registered");
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-    }
-
-    private void setUserDetails(ResultSet resultSet) throws SQLException {
-        userDetails.setEmail(resultSet.getString("Email"));
-        userDetails.setName(resultSet.getString("Name"));
-        userDetails.setPhoneNumber(resultSet.getString("phoneNumber"));
-    }
-
-    private ResultSet getUserDetails(Statement stmt) throws SQLException {
-        String selectFrom = "SELECT * FROM USERDETAILS WHERE";
-        String userId = parameters.getUserId().contains("@") ? " Email =" + parameters.getUserId() : " phoneNumber =" + parameters.getUserId();
-        String password = "password =" + parameters.getPassword();
-        String sql = selectFrom + userId + " AND " + password;
-        System.out.println(sql);
-        return stmt.executeQuery(sql);
     }
 }
