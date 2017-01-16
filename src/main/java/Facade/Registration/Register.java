@@ -5,9 +5,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 import org.hibernate.exception.ConstraintViolationException;
 
+import javax.servlet.http.HttpServletResponse;
+
 public class Register {
 
-    public String registerUsersData(UserDetails userDetails) {
+    public int registerUsersData(UserDetails userDetails) {
 
         try{
             Session session = new Configuration().configure().buildSessionFactory().openSession();
@@ -19,14 +21,13 @@ public class Register {
             session.close();
 
             System.out.println("successfully saved");
-            return "successfully saved";
+            return HttpServletResponse.SC_OK;
         }catch (ConstraintViolationException e) {
             userAllReadyRegisteredMessage();
-            return "User All Ready Registered with same emailId or Phone number";
+            return HttpServletResponse.SC_CONFLICT;
         }catch (Exception e){
             System.out.println("Some Error has occurred");
-            System.out.println(e.getMessage());
-            return "Some Error has occurred";
+            return HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
         }
     }
 

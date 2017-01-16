@@ -11,29 +11,25 @@ public class UserDetailsTest {
     private static final String NAME = "Vivek";
     private static final String PHONE_NUMBER = "980232344";
     private static final String PASSWORD = "password";
-    private final UserDetails userDetails = new UserDetails();
+    private final UserDetails userDetails = new UserDetails(EMAIL, PHONE_NUMBER, PASSWORD, NAME);
 
     @Test
     public void testGetEmail() throws Exception {
-        userDetails.setEmail(EMAIL);
         assertTrue(userDetails.getEmail().equals(EMAIL));
     }
 
     @Test
     public void testGetPassword() throws Exception {
-        userDetails.setPassword(PASSWORD);
         assertTrue(userDetails.getPassword().equals(PASSWORD));
     }
 
     @Test
     public void testGetPhoneNumber() throws Exception {
-        userDetails.setPhoneNumber(PHONE_NUMBER);
         assertTrue(userDetails.getPhoneNumber().equals(PHONE_NUMBER));
     }
 
     @Test
     public void testGetName() throws Exception {
-        userDetails.setName(NAME);
         assertTrue(userDetails.getName().equals(NAME));
     }
 }
