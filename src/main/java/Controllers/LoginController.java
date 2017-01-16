@@ -1,18 +1,17 @@
 package Controllers;
 
 import Facade.Login.Login;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import Mapper.LoginMapper;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/login")
 public class LoginController {
-    @RequestMapping(value = "/{userId}/{password}", method = RequestMethod.GET)
-    public String login(@PathVariable String userId, @PathVariable String password) {
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String login(@RequestBody LoginMapper request) {
         Login login = new Login();
-        login.findUser(userId, password);   //"'96800048'", "password"
-        return "Hello " + userId;
+        login.findUser(request.getUserId(), request.getPassword());   //"'96800048'", "password"
+        return "Hello " + request.getUserId();
     }
 }

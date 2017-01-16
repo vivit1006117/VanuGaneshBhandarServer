@@ -28,6 +28,9 @@ public class UserDetails {
     @Column(nullable = false)
     private String name;
 
+    public UserDetails() {
+    }
+
     public String getEmail() {
         return email;
     }
