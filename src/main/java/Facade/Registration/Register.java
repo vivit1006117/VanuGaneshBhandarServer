@@ -7,7 +7,7 @@ import org.hibernate.exception.ConstraintViolationException;
 
 public class Register {
 
-    public void registerUsersData(UserDetails userDetails) {
+    public String registerUsersData(UserDetails userDetails) {
 
         try{
             Session session = new Configuration().configure().buildSessionFactory().openSession();
@@ -19,11 +19,14 @@ public class Register {
             session.close();
 
             System.out.println("successfully saved");
+            return "successfully saved";
         }catch (ConstraintViolationException e) {
             userAllReadyRegisteredMessage();
+            return "User All Ready Registered with same emailId or Phone number";
         }catch (Exception e){
             System.out.println("Some Error has occurred");
-            System.out.println(e);
+            System.out.println(e.getMessage());
+            return "Some Error has occurred";
         }
     }
 

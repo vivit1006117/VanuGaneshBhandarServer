@@ -17,11 +17,10 @@ public class EncryptAndDecrypt {
     public EncryptAndDecrypt() throws Exception {
         String myEncryptionKey = "UnitedWeAre1UnitedWeAre1";
         String DESEDE_ENCRYPTION_SCHEME = "DESede";
-        String myEncryptionScheme = DESEDE_ENCRYPTION_SCHEME;
         byte[] arrayBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
         KeySpec ks = new DESedeKeySpec(arrayBytes);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance(myEncryptionScheme);
-        cipher = Cipher.getInstance(myEncryptionScheme);
+        SecretKeyFactory skf = SecretKeyFactory.getInstance(DESEDE_ENCRYPTION_SCHEME);
+        cipher = Cipher.getInstance(DESEDE_ENCRYPTION_SCHEME);
         key = skf.generateSecret(ks);
     }
 

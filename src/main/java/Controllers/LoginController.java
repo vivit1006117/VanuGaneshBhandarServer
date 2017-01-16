@@ -12,7 +12,7 @@ public class LoginController {
     @RequestMapping(value = "/{userId}/{password}", method = RequestMethod.GET)
     public String login(@PathVariable String userId, @PathVariable String password) {
         Login login = new Login();
-        login.findUser("'" + userId + "'", password);   //"'96800048'", "password"
+        login.findUser(userId, password);   //"'96800048'", "password"
         return "Hello " + userId;
     }
 }

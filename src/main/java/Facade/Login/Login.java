@@ -28,7 +28,6 @@ public class Login {
             for (Object result : results) {
                 UserDetails userDetails = (UserDetails) result;
 
-                //Display values
                 System.out.println("\nemail: " + userDetails.getEmail());
                 System.out.println("name: " + userDetails.getName());
                 System.out.println("Phone: " + userDetails.getPhoneNumber());

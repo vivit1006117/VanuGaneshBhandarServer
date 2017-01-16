@@ -2,3 +2,4 @@
 VanuGaneshBhandarServer.iml
 target/**
 out/**
+npm-debug.log
