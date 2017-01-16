@@ -9,15 +9,10 @@ class toTest {
 
 
         Register register = new Register();
-        EncryptAndDecrypt encryptAndDecrypter = new EncryptAndDecrypt();
-        String password = encryptAndDecrypter.encrypt("password");
+        String password = EncryptAndDecrypt.encrypt("password");
         System.out.println(password);
         UserDetails userDetails = new UserDetails("vivi@xcdsfg.com", "968600048", password, "vivek");
         register.registerUsersData(userDetails);
-
-
-
-        final LoginParameters parameters = new LoginParameters();
 
         Login login = new Login();
         login.findUser("968600048", password);

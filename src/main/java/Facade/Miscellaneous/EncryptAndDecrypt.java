@@ -1,20 +1,21 @@
 package Facade.Miscellaneous;
 
+import org.apache.commons.codec.binary.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 
-import org.apache.commons.codec.binary.Base64;
 
 import java.security.spec.KeySpec;
 
 public class EncryptAndDecrypt {
-    private final String UNICODE_FORMAT = "UTF8";
-    private Cipher cipher;
-    private SecretKey key;
+    private static final String UNICODE_FORMAT = "UTF8";
+    private static Cipher cipher;
+    private static SecretKey key;
 
-    public EncryptAndDecrypt() throws Exception {
+    private static void EncryptAndDecryptParams() throws Exception {
         String myEncryptionKey = "UnitedWeAre1UnitedWeAre1";
         String DESEDE_ENCRYPTION_SCHEME = "DESede";
         byte[] arrayBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
@@ -24,7 +25,8 @@ public class EncryptAndDecrypt {
         key = skf.generateSecret(ks);
     }
 
-    public String encrypt(String unencryptedString) {
+    public static String encrypt(String unencryptedString) throws Exception {
+        EncryptAndDecryptParams();
         String encryptedString = null;
         try {
             cipher.init(Cipher.ENCRYPT_MODE, key);
