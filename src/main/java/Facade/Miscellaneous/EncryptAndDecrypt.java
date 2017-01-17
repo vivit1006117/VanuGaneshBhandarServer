@@ -1,6 +1,7 @@
 package Facade.Miscellaneous;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -15,8 +16,9 @@ public class EncryptAndDecrypt {
     private static Cipher cipher;
     private static SecretKey key;
 
-    private static void EncryptAndDecryptParams() throws Exception {
-        String myEncryptionKey = "UnitedWeAre1UnitedWeAre1";
+    private static void EncryptAndDecryptParams(String unencryptedString) throws Exception {
+        String dynamicContent = unencryptedString.substring(2, 7);
+        String myEncryptionKey = dynamicContent + "UnitedWeAreOne" + dynamicContent;
         String DESEDE_ENCRYPTION_SCHEME = "DESede";
         byte[] arrayBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
         KeySpec ks = new DESedeKeySpec(arrayBytes);
@@ -26,7 +28,7 @@ public class EncryptAndDecrypt {
     }
 
     public static String encrypt(String unencryptedString) throws Exception {
-        EncryptAndDecryptParams();
+        EncryptAndDecryptParams(unencryptedString);
         String encryptedString = null;
         try {
             cipher.init(Cipher.ENCRYPT_MODE, key);

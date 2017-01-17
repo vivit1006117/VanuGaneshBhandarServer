@@ -8,16 +8,16 @@ public class EncryptAndDecryptTest {
 
     @Test
     public void testEncryptionOfCaracter() throws Exception {
-        assertTrue(EncryptAndDecrypt.encrypt("a").equals("MfoJnt0hZRA="));
+        assertTrue(EncryptAndDecrypt.encrypt("abcdefgh").equals("jsTW+A0ZbPl5PGZ5FGKGsA=="));
     }
 
     @Test
     public void testEncryptionOfNumber() throws Exception {
-        assertTrue(EncryptAndDecrypt.encrypt("1").equals("b7JHqPF+Ca8="));
+        assertTrue(EncryptAndDecrypt.encrypt("12345678").equals("0KkUlh8bVyXKtO22oZHC0Q=="));
     }
 
     @Test
     public void testEncryptionOfSymbol() throws Exception {
-        assertTrue(EncryptAndDecrypt.encrypt("@").equals("ZBjkYMMafDc="));
+        assertTrue(EncryptAndDecrypt.encrypt("!@#$%^&*").equals("Nk7wQxRfTzMAApQDepr/NA=="));
     }
 }
