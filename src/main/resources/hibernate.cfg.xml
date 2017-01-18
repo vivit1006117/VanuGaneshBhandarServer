@@ -14,6 +14,7 @@
         <property name="connection.password">ganesh</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <mapping class="Facade.Users.Registration.UserDetails"/>
+        <mapping class="Facade.Products.AllShopItems"/>
     </session-factory>
 
 </hibernate-configuration>
