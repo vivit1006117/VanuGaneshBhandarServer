@@ -1,4 +1,4 @@
-package Facade.Registration;
+package Facade.Users.Registration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

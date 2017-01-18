@@ -1,6 +1,6 @@
 package Controllers;
 
-import Facade.Login.Login;
+import Facade.Users.Login.Login;
 import Mapper.LoginMapper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

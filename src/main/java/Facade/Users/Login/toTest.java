@@ -1,8 +1,8 @@
-package Facade.Login;
+package Facade.Users.Login;
 
 import Facade.Miscellaneous.EncryptAndDecrypt;
-import Facade.Registration.Register;
-import Facade.Registration.UserDetails;
+import Facade.Users.Registration.Register;
+import Facade.Users.Registration.UserDetails;
 
 class toTest {
     public static void main(String args[]) throws Exception {

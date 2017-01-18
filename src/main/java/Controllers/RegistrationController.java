@@ -1,7 +1,7 @@
 package Controllers;
 
-import Facade.Registration.Register;
-import Facade.Registration.UserDetails;
+import Facade.Users.Registration.Register;
+import Facade.Users.Registration.UserDetails;
 import Mapper.RegistrationRequestMapper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

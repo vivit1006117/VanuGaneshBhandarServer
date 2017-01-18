@@ -1,4 +1,4 @@
-package Facade.Registration;
+package Facade.Users.Registration;
 
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
