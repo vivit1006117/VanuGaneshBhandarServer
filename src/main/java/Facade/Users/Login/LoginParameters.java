@@ -1,7 +1,5 @@
 package Facade.Users.Login;
 
-import Facade.Miscellaneous.EncryptAndDecrypt;
-
 class LoginParameters {
     private String userId;
     private String password;
@@ -14,7 +12,7 @@ class LoginParameters {
         this.userId = userId;
     }
 
-    public String getPassword() throws Exception {
+    public String getPassword() {
         return password;
     }
 

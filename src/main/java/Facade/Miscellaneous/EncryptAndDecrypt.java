@@ -1,7 +1,6 @@
 package Facade.Miscellaneous;
 
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.StringUtils;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

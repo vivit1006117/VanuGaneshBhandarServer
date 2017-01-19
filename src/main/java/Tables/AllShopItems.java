@@ -19,13 +19,13 @@ public class AllShopItems extends BaseTable {
     private String type;
 
     @Column(nullable = false)
-    private String quntity;
+    private String quantity;
 
     @Column(nullable = false)
     private String image;
 
     @Column(nullable = false)
-    private String quntityValue;
+    private String quantityValue;
 
     public String getName() {
         return name;
@@ -51,20 +51,20 @@ public class AllShopItems extends BaseTable {
         this.type = type;
     }
 
-    public String getQuntity() {
-        return quntity;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setQuntity(String quntity) {
-        this.quntity = quntity;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public String getQuntityValue() {
-        return quntityValue;
+    public String getQuantityValue() {
+        return quantityValue;
     }
 
-    public void setQuntityValue(String quntityValue) {
-        this.quntityValue = quntityValue;
+    public void setQuantityValue(String quantityValue) {
+        this.quantityValue = quantityValue;
     }
 
     public String getImage() {

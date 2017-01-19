@@ -4,9 +4,9 @@ public class ProductMapper {
     private String name;
     private String price;
     private String type;
-    private String quntity;
+    private String quantity;
     private String image;
-    private String quntityValue;
+    private String quantityValue;
 
     public ProductMapper(){}
 
@@ -34,12 +34,12 @@ public class ProductMapper {
         this.type = type;
     }
 
-    public String getQuntity() {
-        return quntity;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setQuntity(String quntity) {
-        this.quntity = quntity;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getImage() {
@@ -50,11 +50,11 @@ public class ProductMapper {
         this.image = image;
     }
 
-    public String getQuntityValue() {
-        return quntityValue;
+    public String getQuantityValue() {
+        return quantityValue;
     }
 
-    public void setQuntityValue(String quntityValue) {
-        this.quntityValue = quntityValue;
+    public void setQuantityValue(String quantityValue) {
+        this.quantityValue = quantityValue;
     }
 }

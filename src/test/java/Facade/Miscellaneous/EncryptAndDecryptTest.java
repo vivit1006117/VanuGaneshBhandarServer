@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class EncryptAndDecryptTest {
 
     @Test
-    public void testEncryptionOfCaracter() throws Exception {
+    public void testEncryptionOfCharacter() throws Exception {
         assertTrue(EncryptAndDecrypt.encrypt("abcdefgh").equals("jsTW+A0ZbPl5PGZ5FGKGsA=="));
     }
 

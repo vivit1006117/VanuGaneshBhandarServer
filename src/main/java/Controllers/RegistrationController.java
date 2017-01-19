@@ -1,6 +1,5 @@
 package Controllers;
 
-import Tables.BaseTable;
 import Tables.UserDetails;
 import Mapper.RegistrationRequestMapper;
 import org.springframework.http.MediaType;
