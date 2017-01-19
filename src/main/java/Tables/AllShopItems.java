@@ -1,4 +1,4 @@
-package Facade.Products;
+package Tables;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class AllShopItems {
+public class AllShopItems extends BaseTable {
 
     @Id
     private String name;

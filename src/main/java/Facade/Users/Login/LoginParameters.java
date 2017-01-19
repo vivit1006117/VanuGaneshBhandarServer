@@ -15,7 +15,7 @@ class LoginParameters {
     }
 
     public String getPassword() throws Exception {
-        return EncryptAndDecrypt.encrypt(password);
+        return password;
     }
 
     public void setPassword(String password) {

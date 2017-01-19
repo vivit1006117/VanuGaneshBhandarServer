@@ -13,8 +13,8 @@
         <property name="connection.username">ganesh</property>
         <property name="connection.password">ganesh</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <mapping class="Facade.Users.Registration.UserDetails"/>
-        <mapping class="Facade.Products.AllShopItems"/>
+        <mapping class="Tables.UserDetails"/>
+        <mapping class="Tables.AllShopItems"/>
     </session-factory>
 
 </hibernate-configuration>

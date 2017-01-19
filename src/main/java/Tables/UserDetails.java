@@ -1,4 +1,4 @@
-package Facade.Users.Registration;
+package Tables;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class UserDetails {
+public class UserDetails extends BaseTable{
 
     public UserDetails(String email, String phoneNumber, String password, String name){
         setEmail(email);

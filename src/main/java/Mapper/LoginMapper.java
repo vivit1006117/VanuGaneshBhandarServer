@@ -1,5 +1,7 @@
 package Mapper;
 
+import Facade.Miscellaneous.EncryptAndDecrypt;
+
 public class LoginMapper {
     private String userId;
     private String password;
@@ -15,8 +17,8 @@ public class LoginMapper {
         this.userId = userId;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassword() throws Exception {
+        return EncryptAndDecrypt.encrypt(password);
     }
 
     public void setPassword(String password) {

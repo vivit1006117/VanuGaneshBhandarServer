@@ -1,6 +1,6 @@
 package Facade.Users.Login;
 
-import Facade.Users.Registration.UserDetails;
+import Tables.UserDetails;
 import org.hibernate.Criteria;
 import org.hibernate.QueryException;
 import org.hibernate.cfg.Configuration;

@@ -1,7 +1,6 @@
 package Controllers;
 
-import Facade.Products.AllShopItems;
-import Facade.Products.Products;
+import Tables.AllShopItems;
 import Mapper.ProductMapper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,8 +15,7 @@ public class ProductsController {
     public void register(@RequestBody ProductMapper request) {
         try {
             AllShopItems allShopItems = new AllShopItems();
-            Products products = new Products();
-            products.add(allShopItems);
+            allShopItems.addToTable();
             System.out.println("Success");
         }catch (Exception e){
             System.out.println(e.getMessage());

@@ -1,4 +1,4 @@
-package Facade.Users.Registration;
+package Tables;
 
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
@@ -7,31 +7,25 @@ import org.hibernate.exception.ConstraintViolationException;
 
 import javax.servlet.http.HttpServletResponse;
 
-public class Register {
+public class BaseTable {
 
-    public int registerUsersData(UserDetails userDetails) {
+    public int addToTable() {
 
-        try{
+        try {
             Session session = new Configuration().configure().buildSessionFactory().openSession();
 
             Transaction transaction = session.beginTransaction();
-            session.persist(userDetails);
+            session.persist(this);
 
             transaction.commit();
             session.close();
 
-            System.out.println("successfully saved");
             return HttpServletResponse.SC_OK;
-        }catch (ConstraintViolationException e) {
-            userAllReadyRegisteredMessage();
+        } catch (ConstraintViolationException e) {
             return HttpServletResponse.SC_CONFLICT;
-        }catch (Exception e){
-            System.out.println("Some Error has occurred");
+        } catch (Exception e) {
             return HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
         }
     }
-
-    private static void userAllReadyRegisteredMessage() {
-        System.out.println("User All Ready Registered with same emailId or Phone number");
-    }
 }
+
