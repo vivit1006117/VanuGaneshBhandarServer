@@ -4,12 +4,12 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 import org.hibernate.exception.ConstraintViolationException;
-
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 public class BaseTable {
 
-    public int addToTable() {
+    public ResponseEntity addToTable() {
 
         try {
             Session session = new Configuration().configure().buildSessionFactory().openSession();
@@ -20,11 +20,11 @@ public class BaseTable {
             transaction.commit();
             session.close();
 
-            return HttpServletResponse.SC_OK;
+            return new ResponseEntity(HttpStatus.OK);
         } catch (ConstraintViolationException e) {
-            return HttpServletResponse.SC_CONFLICT;
+            return new ResponseEntity(HttpStatus.CONFLICT);
         } catch (Exception e) {
-            return HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
